@@ -57,7 +57,7 @@ const data03 = [
     { product: "Fideo", visits: 897 },
 ];
 
-const data04: any = [
+const data04 = [
     {
         name: "Hombre",
         value: 30,
@@ -150,7 +150,9 @@ const BranchStatsPage = () => {
                             <CardTitle className="mb-6 mt-6">Productos mas populares</CardTitle>
                             <SimpleBarChart 
                             inData={data03}
-                            fill={"#808000"} />
+                            fill={"#808000"}
+                            xaxis={"product"}
+                            datak={"visits"} />
                         </Card>
                     </div>
                     <div>

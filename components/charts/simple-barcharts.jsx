@@ -21,11 +21,11 @@ const SimpleBarChart = (props) => {
         <ResponsiveContainer width="100%" aspect={2}>
             <BarChart data={props.inData ?? data}>
                 <CartesianGrid strokeDasharray="4 1 2" />
-                <XAxis dataKey="month" />
+                <XAxis dataKey={props.xaxis ?? "month"} />
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="visits" fill={props.fill ?? "#8884d8"} />
+                <Bar dataKey={props.datak ?? "visits"} fill={props.fill ?? "#8884d8"} />
             </BarChart>
         </ResponsiveContainer>
     );
