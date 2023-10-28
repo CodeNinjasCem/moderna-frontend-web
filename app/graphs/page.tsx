@@ -52,9 +52,24 @@ const data02 = [
 ];
 
 const data03 = [
-    { month: "Spaghetti", visits: 1203 },
-    { month: "Harina", visits: 987 },
-    { month: "Fideo", visits: 897 },
+    { product: "Spaghetti", visits: 1203 },
+    { product: "Harina", visits: 987 },
+    { product: "Fideo", visits: 897 },
+];
+
+const data04: any = [
+    {
+        name: "Hombre",
+        value: 30,
+    },
+    {
+        name: "Mujer",
+        value: 43,
+    },
+    {
+        name: "Otro",
+        value: 17,
+    },
 ];
 
 const BranchStatsPage = () => {
@@ -140,8 +155,8 @@ const BranchStatsPage = () => {
                     </div>
                     <div>
                         <Card className="p-4">
-                            <CardTitle className="mb-6 mt-6">Test one</CardTitle>
-                            <PayPieChart data01={data01}/>
+                            <CardTitle className="mb-6 mt-6">Genero de nuestros usuarios</CardTitle>
+                            <PayPieChart data01={data04}/>
                         </Card>
                     </div>
                 </div>
