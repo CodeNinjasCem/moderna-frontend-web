@@ -2,13 +2,10 @@
 import * as React from "react";
 // import SimpleBarCharts from "@/components/charts/simple-bar-charts";
 
-// import PaymentPieChart from "@/components/charts/pay-pie-chart";
 import PayPieChart from "@/components/charts/pay-pie-chart";
-// import HistogramBarChart from "@/components/charts/histogram_time";
 import HistogramBarChart from "@/components/charts/histogram";
-
-// import BranchIncomeBarChart from "@/components/charts/branch_income";
-// import TransactionsBarChart from "@/components/charts/transactions_charts";
+import IncomeBarChart from "@/components/charts/income";
+import SimpleBarChart from "@/components/charts/simple-barcharts";
 
 import {
     Card,
@@ -22,16 +19,16 @@ import {
 
 const data01: any = [
     {
-        name: "CreditCard",
-        value: 100,
+        name: "Spaghetti La Moderna",
+        value: 80,
     },
     {
-        name: "DebitCard",
-        value: 50,
+        name: "Sopa Munición La Moderna",
+        value: 40,
     },
     {
-        name: "Cash",
-        value: 90,
+        name: "Sopa Dino Figuras La Moderna",
+        value: 72,
     },
 ];
 
@@ -45,29 +42,106 @@ const data = [
     { amount: "1000", time: "2", last_visited: "30/09/2023" },
     { amount: "400", time: "11", last_visited: "25/09/2023" },
 ];
+
+const data02 = [
+    { month: "Mayo", visits: 1300 },
+    { month: "Junio", visits: 1600 },
+    { month: "Julio", visits: 1400 },
+    { month: "Agosto", visits: 1700 },
+    { month: "Septiembre", visits: 1900 }
+];
+
+const data03 = [
+    { month: "Spaghetti", visits: 1203 },
+    { month: "Harina", visits: 987 },
+    { month: "Fideo", visits: 897 },
+];
+
 const BranchStatsPage = () => {
     return (
             <div className="flex-1 space-y-4 p-8 pt-6">
                 <div className="flex items-center justify-between space-y-2">
                     <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
                 </div>
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                <Card>
+                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium">
+                      Producto del mes
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold">Galleta de animalitos</div>
+                    <p className="text-xs text-muted-foreground">
+                      Primer producto escaneado por nuevos clientes
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium">
+                    Producto mas consumido
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold">Spaghetti</div>
+                    <p className="text-xs text-muted-foreground">
+                        El favorito de las familias
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium">Familias La Moderna</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold">3 integrantes</div>
+                    <p className="text-xs text-muted-foreground">
+                    Tamaño promedio de las famlias
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium">
+                    Recetas generadas
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold">120 nuevas recetas</div>
+                    <p className="text-xs text-muted-foreground">
+                      Por parte de los clientes
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
                     <div>
                         <Card className="p-4">
-                            <CardTitle>Test one</CardTitle>
+                            <CardTitle  className="mb-6 mt-6">Productos mas escaneados historicamente</CardTitle>
                             <PayPieChart data01={data01} />
                         </Card>
                     </div>
                     <div>
                         <Card className="p-4">
-                            <CardTitle>Test one</CardTitle>
-                            <PayPieChart data01={data01} />
+                            <CardTitle  className="mb-6 mt-6">Captación de nuevos usuarios</CardTitle>
+                            <SimpleBarChart 
+                            inData={data02}
+                            fill={"#ff8000"} />
                         </Card>
                     </div>
                     <div>
                         <Card className="p-4">
-                            <CardTitle>Test one</CardTitle>
-                            <PayPieChart data01={data01} />
+                            <CardTitle className="mb-6 mt-6">Productos mas populares</CardTitle>
+                            <SimpleBarChart 
+                            inData={data03}
+                            fill={"#808000"} />
+                        </Card>
+                    </div>
+                    <div>
+                        <Card className="p-4">
+                            <CardTitle className="mb-6 mt-6">Test one</CardTitle>
+                            <PayPieChart data01={data01}/>
                         </Card>
                     </div>
                 </div>

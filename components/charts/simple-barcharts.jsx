@@ -16,7 +16,7 @@ const data = [
     { month: "Diciembre", visits: 2200 },
 ];
 
-const VisitsBarChart = (props) => {
+const SimpleBarChart = (props) => {
     return (
         <ResponsiveContainer width="100%" aspect={2}>
             <BarChart data={props.inData ?? data}>
@@ -25,10 +25,10 @@ const VisitsBarChart = (props) => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="visits" fill="#8884d8" />
+                <Bar dataKey="visits" fill={props.fill ?? "#8884d8"} />
             </BarChart>
         </ResponsiveContainer>
     );
 };
 
-export default VisitsBarChart;
+export default SimpleBarChart;
